@@ -102,7 +102,7 @@ def make_env(conf):
         "reward_speed_range": [0, 20],
         "high_speed_reward": 1,
         "arrived_reward": 5,
-        "collision_reward": -15,
+        "collision_reward": -50,
         "test_time": conf.test_flag,
         "random": conf.random,
     }
@@ -204,3 +204,4 @@ def rule_dec(action, agent_id, obs, info):
     if sum(ttc) - ttc[agent_id] == 0:
         action = 2
     return action
+
