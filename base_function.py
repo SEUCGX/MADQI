@@ -70,7 +70,7 @@ def make_env(conf):
             "observation_config": {
                 "type": "Kinematics",
                 "vehicles_count": 10,
-                "features": ["presence", "x", "y", "vx", "vy", "cos_h", "sin_h"],
+                "features": ["presence", "x", "y", "vx", "vy"],
                 "features_range": {
                     "x": [-100, 100],
                     "y": [-100, 100],
@@ -204,4 +204,5 @@ def rule_dec(action, agent_id, obs, info):
     if sum(ttc) - ttc[agent_id] == 0:
         action = 2
     return action
+
 
