@@ -104,7 +104,7 @@ class MixNetwork:
         else:
             q_total_eval = self.eval_mix_net(q_evals, s)
             q_total_target = self.target_mix_net(q_targets, s_)
-        if self.conf.mix_network == "WQMIX" or "QMIX" or "VDN":
+        if self.conf.mix_network in ["WQMIX", "QMIX", "VDN"]:
             targets = r + self.conf.gamma * q_total_target * (1 - terminated)
             td_error = (q_total_eval - targets.detach())
             w_tensor = torch.where(td_error < 0, torch.tensor(1.0).to(td_error.device),
